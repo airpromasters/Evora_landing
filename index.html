@@ -3,69 +3,63 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Evora — Натяжные потолки</title>
-  <meta name="description" content="Evora.by — натяжные потолки с вентиляцией, дизайном и акустикой. Быстрый монтаж и премиум качество.">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evora — Натяжные потолки нового поколения</title>
+  <meta name="description" content="Премиальные натяжные потолки с вентиляцией, акустикой и уникальным дизайном.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="fade-in">
-    <div class="container">
-      <h1>Evora.by</h1>
-      <p>Качество в каждой детали</p>
-    </div>
+  <header>
+    <h1>Evora.by</h1>
+    <p>Качество в каждой детали</p>
   </header>
 
-  <section class="hero fade-in">
-    <div class="overlay"></div>
-    <div class="content">
-      <h2>Натяжные потолки нового поколения</h2>
-      <p>Монтаж за 1 день. Без запаха. Вентиляция и акустика. Под любой интерьер.</p>
-      <a href="#contact" class="btn">Заказать замер</a>
+  <section class="hero">
+    <h2>Натяжные потолки нового поколения</h2>
+    <p>Скрытая вентиляция. Акустика. LED. Установка за 1 день.</p>
+    <a href="#contact" class="btn">Оставить заявку</a>
+  </section>
+
+  <section class="gallery">
+    <h2>Галерея работ</h2>
+    <div class="grid">
+      <img src="https://evora.img/01.jpg" alt="Работа 1">
+      <img src="https://evora.img/02.jpg" alt="Работа 2">
+      <img src="https://evora.img/03.jpg" alt="Работа 3">
     </div>
   </section>
 
-  <section class="features fade-in">
-    <div class="feature"><h3>✨ Дизайн-потолки</h3><p>Фотопечать, минимализм, комикс-стиль</p></div>
-    <div class="feature"><h3>⏱ Быстрый монтаж</h3><p>До 50 м² за 1 день с чистым результатом</p></div>
-    <div class="feature"><h3>💨 Вентиляция и акустика</h3><p>Скрытые анемостаты, акустические панели</p></div>
-    <div class="feature"><h3>📅 Гарантия и поддержка</h3><p>Официальная гарантия от мастеров Evora</p></div>
+  <section class="reviews">
+    <h2>Отзывы клиентов</h2>
+    <div class="review">
+      <p>“Сделали идеально — без запаха, быстро и красиво!”</p>
+      <span>Александр, Минск</span>
+    </div>
+    <div class="review">
+      <p>“Очень стильный потолок с акустикой. Спасибо!”</p>
+      <span>Марина, Гомель</span>
+    </div>
   </section>
 
-  <section class="calculator fade-in">
-    <h2>💰 Рассчитать стоимость</h2>
-    <p>Введите площадь потолка:</p>
-    <input type="number" id="area" placeholder="м²">
-    <button onclick="calculatePrice()">Рассчитать</button>
-    <p id="result"></p>
-  </section>
-
-  <section class="contact fade-in" id="contact">
-    <h2>📞 Оставьте заявку</h2>
+  <section id="contact">
+    <h2>Оставьте заявку</h2>
     <form id="contactForm">
       <input type="text" name="name" placeholder="Ваше имя" required>
       <input type="tel" name="phone" placeholder="Телефон" required>
-      <textarea name="message" placeholder="Сообщение" required></textarea>
+      <textarea name="message" placeholder="Комментарий"></textarea>
       <button type="submit">Отправить</button>
     </form>
     <p id="formResponse"></p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Evora.by | +375 (44) 760-30-22 | @ceiling_mastres_eu</p>
+    <p>© 2025 Evora.by | +375 (44) 760-30-22 | Telegram: @ceiling_mastres_eu</p>
   </footer>
 
   <script>
-    function calculatePrice() {
-      const area = document.getElementById('area').value;
-      const result = area * 18;
-      document.getElementById('result').innerText = "Примерная стоимость: " + result.toFixed(2) + " BYN";
-    }
-
     document.getElementById("contactForm").addEventListener("submit", function(e) {
       e.preventDefault();
-      document.getElementById("formResponse").innerText = "✅ Заявка отправлена! Мы свяжемся с вами.";
+      document.getElementById("formResponse").innerText = "✅ Заявка отправлена!";
       this.reset();
     });
   </script>
