@@ -3,64 +3,49 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Evora — Натяжные потолки</title>
-  <meta name="description" content="Премиальные натяжные потолки с вентиляцией, акустикой и дизайном.">
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evora.by</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header><h1>Evora.by</h1><p>Качество в каждой детали</p></header>
+  <div class="logo-container">
+    <img src="logo.png" alt="Evora Logo" class="logo" />
+  </div>
+  <h1>Evora.by</h1>
+  <p>Качество в каждой детали</p>
 
-  <section class="hero">
-    <h2>Натяжные потолки нового поколения</h2>
-    <p>Скрытая вентиляция. Акустика. LED. Установка за 1 день.</p>
-    <a href="#contact" class="btn">Оставить заявку</a>
-  </section>
-
-  <section class="gallery">
-    <h2>Галерея работ</h2>
-    <div class="grid">
-      <img src="gallery1.jpg" alt="Проект 1">
-      <img src="gallery2.jpg" alt="Проект 2">
-      <img src="gallery3.jpg" alt="Проект 3">
-      <img src="gallery4.jpg" alt="Проект 4">
-      <img src="gallery5.jpg" alt="Проект 5">
-      <img src="gallery6.jpg" alt="Проект 6">
-    </div>
-  </section>
-
-  <section class="reviews">
-    <h2>Отзывы клиентов</h2>
-    <div class="review">
-      <p>“Сделали идеально — без запаха, быстро и красиво!”</p>
-      <span>Александр, Минск</span>
-    </div>
-    <div class="review">
-      <p>“Очень стильный потолок с акустикой. Спасибо!”</p>
-      <span>Марина, Гомель</span>
-    </div>
-  </section>
-
-  <section id="contact">
+  <section class="form-section">
     <h2>Оставьте заявку</h2>
     <form id="contactForm">
-      <input type="text" name="name" placeholder="Ваше имя" required>
-      <input type="tel" name="phone" placeholder="Телефон" required>
-      <textarea name="message" placeholder="Комментарий"></textarea>
+      <input type="text" name="name" placeholder="Ваше имя" required />
+      <input type="tel" name="phone" placeholder="Телефон" required />
+      <textarea name="comment" placeholder="Комментарий"></textarea>
       <button type="submit">Отправить</button>
     </form>
-    <p id="formResponse"></p>
+    <p id="statusMessage"></p>
   </section>
 
-  <footer>
-    <p>© 2025 Evora.by | +375 (44) 760-30-22 | Telegram: @ceiling_mastres_eu</p>
-  </footer>
-
   <script>
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
+    const token = "7993634708:AAF5FYWJdzyf-tl4-lH3LFXci_wBYiGSGLg";
+    const chat_id = "5022308396";
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      document.getElementById("formResponse").innerText = "✅ Заявка отправлена!";
-      this.reset();
+      const name = this.name.value;
+      const phone = this.phone.value;
+      const comment = this.comment.value;
+      const text = `📩 Новая заявка с сайта Evora:\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n💬 Комментарий: ${comment}`;
+      const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}`;
+
+      fetch(url)
+        .then(res => {
+          document.getElementById('statusMessage').innerText = "✅ Заявка отправлена!";
+          this.reset();
+        })
+        .catch(err => {
+          document.getElementById('statusMessage').innerText = "❌ Ошибка при отправке.";
+        });
     });
   </script>
 </body>
