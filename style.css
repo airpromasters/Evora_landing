@@ -1,0 +1,12 @@
+
+body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
+header, footer { background-color: #000; color: #fff; padding: 20px; text-align: center; }
+header img { height: 50px; }
+.hero, .section, .gallery, .reviews, .contact-form { padding: 20px; max-width: 1000px; margin: auto; }
+.hero { background: #fff; text-align: center; }
+.btn-telegram { background: #0088cc; color: #fff; padding: 12px 24px; border-radius: 8px; text-decoration: none; display: inline-block; margin-top: 20px; }
+.gallery img { width: 30%; margin: 1.5%; border-radius: 10px; }
+.reviews blockquote { font-style: italic; background: #e0e0e0; padding: 10px; border-left: 4px solid #555; margin: 10px 0; }
+form { display: flex; flex-direction: column; }
+input, textarea { margin-bottom: 10px; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; }
+button { padding: 10px; background: #000; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
